@@ -20,14 +20,25 @@
 
 従来のプロンプトとは異なり、AIが「一問一答」形式で質問を投げかけ、ユーザーの状況を深く理解した上で、専門家レベルの回答を提供します。
 
-### 📦 2つのバリエーション
+### 📦 テンプレートバリエーション
 
-| バージョン | 文字数 | 用途 |
-|------------|--------|------|
-| **フル版** (`templates/full/`) | 約30,000文字 | 詳細な理論・フレームワークを含む完全版 |
-| **コンパクト版** (`templates/compact/`) | 8,000文字以内 | トークン制限のあるAI向けに圧縮 |
+| バージョン | 用途 |
+|------------|------|
+| **フル版** (`templates/full/`) | 詳細な理論・フレームワークを含む完全版（約30,000文字） |
+| **LLM最適化版** | 各LLMの特性に合わせて最適化（下記参照） |
 
-> 💡 **推奨**: ClaudeやGPT-4などコンテキストの長いAIにはフル版、ChatGPT無料版などにはコンパクト版をご利用ください。
+### 🤖 LLM最適化版
+
+各LLMの特性に合わせて最適化されたプロンプトを提供しています。
+
+| LLM | ディレクトリ | 最適化特徴 |
+|-----|-------------|-----------|
+| **GPT-4o/5** | `templates/gpt/` | Markdown形式、IMPORTANT REMINDERS、テーブル活用 |
+| **Claude 4.x** | `templates/claude/` | XMLタグ構造化（system/role/knowledge/workflow等） |
+| **MS Copilot** | `templates/copilot/` | M365連携ポイント、KEY REMINDERS |
+| **Gemini Pro** | `templates/gemini/` | 太字見出し形式、厳密な出力フォーマット、エラーリカバリー |
+
+> 💡 **推奨**: お使いのLLMに対応した最適化版を使用することで、より効果的な対話が可能です。
 
 ---
 
@@ -218,13 +229,14 @@
 
 テンプレートの内容をコピーし、お使いのAIツールに貼り付けます。
 
+> ⚠️ **重要**: テンプレートをコピーする際は、**ヘッダー部分**（`> 📅 作成日:` など）と**フッター部分**（ライセンス表記など）を削除してください。本文の `# ロール定義` または `# Role and Purpose` から始めてコピーしてください。
+
 | AIモデル | 推奨版 | 設定方法 |
 |---------|--------|---------|
-| **Claude** | フル版 | プロンプト全文を会話冒頭に貼り付け（長文コンテキスト得意） |
-| **ChatGPT (GPT-4)** | フル版 | Custom Instructionsに追記、または会話冒頭に貼り付け |
-| **ChatGPT無料版** | コンパクト版 | 会話冒頭に貼り付け |
-| **Gemini** | コンパクト版 | 構造化して提示 |
-| **Microsoft 365 Copilot** | コンパクト版 | Word/Teams Copilotに貼り付け |
+| **Claude** | `templates/claude/` | プロンプト全文を会話冒頭に貼り付け（長文コンテキスト得意） |
+| **ChatGPT (GPT-4/5)** | `templates/gpt/` | Custom Instructionsに追記、または会話冒頭に貼り付け |
+| **Gemini** | `templates/gemini/` | 構造化して提示 |
+| **Microsoft 365 Copilot** | `templates/copilot/` | Word/Teams Copilotに貼り付け |
 
 ### 3. 対話の開始
 
@@ -260,14 +272,12 @@ KOTODAMA4Biz/
 │   └── rules/
 │       └── constitution.md
 └── templates/                # 43種類のIAPテンプレート
-    ├── full/                 # フル版（約30,000文字）
-    │   ├── strategy-consultant.md
-    │   ├── business-development.md
-    │   └── ...
-    └── compact/              # コンパクト版（8,000文字以内）
-        ├── strategy-consultant.md
-        ├── business-development.md
-        └── ...
+    ├── full/                 # フル版（詳細版）
+    ├── compact/              # コンパクト版（8,000文字以内）
+    ├── gpt/                  # GPT最適化版
+    ├── claude/               # Claude最適化版
+    ├── copilot/              # Copilot最適化版
+    └── gemini/               # Gemini最適化版
 ```
 
 ---
@@ -295,6 +305,7 @@ Phase 1 (Discovery) → Phase 2 (Context Gathering) → Phase 3 (SKILL Selection
 
 | バージョン | 日付 | 変更内容 |
 |-----------|------|----------|
+| v1.3 | 2026-01-07 | LLM最適化版を追加（GPT/Claude/Copilot/Gemini各43テンプレート、計172ファイル） |
 | v1.2 | 2025-01-13 | コンパクト版（8,000文字以内）43テンプレートを追加。steeringディレクトリ整備 |
 | v1.1 | 2025-01-13 | 43テンプレートに拡充、IAP作成マニフェストv1.1準拠 |
 | v1.0 | 2025-01-12 | 初版リリース - 32テンプレート |
