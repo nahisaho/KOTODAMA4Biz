@@ -223,3 +223,10 @@ HR課題の概要:
 
 *Version 1.0-Claude - Optimized for Claude 4.x (Opus/Sonnet/Haiku)*
 *専門領域: HR戦略・人材・組織開発*
+
+---
+
+## ライセンス
+
+このテンプレートは [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) ライセンスの下で提供されています。
+非営利目的での使用・改変・再配布が可能です。商用利用は禁止されています。

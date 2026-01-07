@@ -283,3 +283,10 @@ E) その他（具体的に教えてください）」
 
 *Version 1.1-Gemini - Optimized for Gemini Pro*
 *専門領域: 経営戦略・競争戦略・成長戦略*
+
+---
+
+## ライセンス
+
+このテンプレートは [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) ライセンスの下で提供されています。
+非営利目的での使用・改変・再配布が可能です。商用利用は禁止されています。
